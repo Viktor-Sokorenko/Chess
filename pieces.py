@@ -102,3 +102,18 @@ class Pawn(BaseChessPiece):
 
     def move(self):
         print("Pawn moves forward 1 position")
+
+class Rook(BaseChessPiece):
+    def __init__(self, color, identifier):
+        super().__init__(color, "Rook", "R", identifier)
+
+    def move(self):
+        print("Rook moves in a straight line")
+
+
+class Bishop(BaseChessPiece):
+    def __init__(self, color, identifier):
+        super().__init__(color, "Bishop", "B", identifier)
+
+    def move(self):
+        print("Bishop moves diagonally")
