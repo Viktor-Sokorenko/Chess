@@ -52,3 +52,35 @@ class BoardMovements:
             return position
 
         return f"{new_column}{row}"
+    
+    @staticmethod
+    def forward_left(position: str, color: str, squares: int = 1):
+        temp = BoardMovements.forward(position, color, squares)
+        if temp == position:
+            return position
+        result = BoardMovements.left(temp, color, squares)
+        return result
+
+    @staticmethod
+    def forward_right(position: str, color: str, squares: int = 1):
+        temp = BoardMovements.forward(position, color, squares)
+        if temp == position:
+            return position
+        result = BoardMovements.right(temp, color, squares)
+        return result
+
+    @staticmethod
+    def backward_left(position: str, color: str, squares: int = 1):
+        temp = BoardMovements.backward(position, color, squares)
+        if temp == position:
+            return position
+        result = BoardMovements.left(temp, color, squares)
+        return result
+
+    @staticmethod
+    def backward_right(position: str, color: str, squares: int = 1):
+        temp = BoardMovements.backward(position, color, squares)
+        if temp == position:
+            return position
+        result = BoardMovements.right(temp, color, squares)
+        return result
