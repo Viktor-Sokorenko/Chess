@@ -117,3 +117,26 @@ class Bishop(BaseChessPiece):
 
     def move(self):
         print("Bishop moves diagonally")
+
+class Queen(BaseChessPiece):
+    def __init__(self, color, identifier):
+        super().__init__(color, "Queen", "Q", identifier)
+
+    def move(self):
+        print("Queen moves diagonally or straight")
+
+
+class King(BaseChessPiece):
+    def __init__(self, color, identifier):
+        super().__init__(color, "King", "K", identifier)
+
+    def move(self):
+        print("King moves 1 square in any direction")
+
+
+class Knight(BaseChessPiece):
+    def __init__(self, color, identifier):
+        super().__init__(color, "Knight", "N", identifier)
+
+    def move(self):
+        print("Knight moves in an L shape")
