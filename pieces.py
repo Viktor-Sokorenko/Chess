@@ -83,8 +83,8 @@ class BaseChessPiece(ABC):
             raise ValueError("is_alive have to be a bool")
 
     @abstractmethod
-    def move(self):
-        pass
+    def move(self, movement):
+        print(movement)
 
     def die(self):
         self.is_alive = False
@@ -101,14 +101,16 @@ class Pawn(BaseChessPiece):
         super().__init__(color, "Pawn", "-", identifier)
 
     def move(self):
-        print("Pawn moves forward 1 position")
+        movement = "Pawn moves forward 1 position"
+        super().move(movement)
 
 class Rook(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Rook", "R", identifier)
 
     def move(self):
-        print("Rook moves in a straight line")
+        movement = "Rook moves in a straight line"
+        super().move(movement)
 
 
 class Bishop(BaseChessPiece):
@@ -116,22 +118,24 @@ class Bishop(BaseChessPiece):
         super().__init__(color, "Bishop", "B", identifier)
 
     def move(self):
-        print("Bishop moves diagonally")
+        movement = "Bishop moves diagonally"
+        super().move(movement)
 
 class Queen(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Queen", "Q", identifier)
 
     def move(self):
-        print("Queen moves diagonally or straight")
-
+        movement = "Queen moves diagonally or straight"
+        super().move(movement)
 
 class King(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "King", "K", identifier)
 
     def move(self):
-        print("King moves 1 square in any direction")
+        movement = "King moves 1 square in any direction"
+        super().move(movement)
 
 
 class Knight(BaseChessPiece):
@@ -139,4 +143,5 @@ class Knight(BaseChessPiece):
         super().__init__(color, "Knight", "N", identifier)
 
     def move(self):
-        print("Knight moves in an L shape")
+        movement = "Knight moves in an L shape"
+        super().move(movement)
