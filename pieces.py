@@ -125,8 +125,22 @@ class Rook(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Rook", "R", identifier)
 
-    def move(self):
-        movement = "Rook moves in a straight line"
+    def move(self, direction, squares):
+        if direction == "Left":
+            movement = BoardMovements.left(self.position, self.color, squares)
+
+        elif direction == "Right":
+            movement = BoardMovements.right(self.position, self.color, squares)
+
+        elif direction == "Forward":
+            movement = BoardMovements.forward(self.position, self.color, squares)
+
+        elif direction == "Backward":
+            movement = BoardMovements.backward(self.position, self.color, squares)
+
+        else:
+            return
+
         super().move(movement)
 
 

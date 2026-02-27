@@ -2,5 +2,6 @@ from board import Board
 
 board = Board()
 
-pawn = board.get_piece("a2")
-pawn.move()
+rook = board.get_piece("a1")
+
+rook.move("Right", 2)
