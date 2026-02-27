@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from movements import BoardMovements
 
 
 class BaseChessPiece(ABC):
@@ -117,7 +118,7 @@ class Pawn(BaseChessPiece):
         super().__init__(color, "Pawn", "-", identifier)
 
     def move(self):
-        movement = "Pawn moves forward 1 position"
+        movement = BoardMovements.forward(self.position, self.color, 1)
         super().move(movement)
 
 class Rook(BaseChessPiece):
