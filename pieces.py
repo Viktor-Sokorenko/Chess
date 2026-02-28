@@ -239,6 +239,56 @@ class Knight(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Knight", "N", identifier)
 
-    def move(self):
-        movement = "Knight moves in an L shape"
+    def move(self, direction):
+        column = self.position[0]
+        row = int(self.position[1])
+
+        col_value = ord(column)
+        new_col_value = col_value
+        new_row = row
+
+        if direction == "ForwardLeft":
+            new_row = row + 2
+            new_col_value = col_value - 1
+
+        elif direction == "ForwardRight":
+            new_row = row + 2
+            new_col_value = col_value + 1
+
+        elif direction == "BackwardLeft":
+            new_row = row - 2
+            new_col_value = col_value - 1
+
+        elif direction == "BackwardRight":
+            new_row = row - 2
+            new_col_value = col_value + 1
+
+        elif direction == "LeftForward":
+            new_row = row + 1
+            new_col_value = col_value - 2
+
+        elif direction == "LeftBackward":
+            new_row = row - 1
+            new_col_value = col_value - 2
+
+        elif direction == "RightForward":
+            new_row = row + 1
+            new_col_value = col_value + 2
+
+        elif direction == "RightBackward":
+            new_row = row - 1
+            new_col_value = col_value + 2
+
+        else:
+            return
+
+        new_column = chr(new_col_value)
+
+        if new_row == 0 or new_row == 9:
+            return
+
+        if new_column == "`" or new_column == "i":
+            return
+
+        movement = f"{new_column}{new_row}"
         super().move(movement)
