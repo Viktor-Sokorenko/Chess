@@ -148,24 +148,90 @@ class Bishop(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Bishop", "B", identifier)
 
-    def move(self):
-        movement = "Bishop moves diagonally"
+    def move(self, direction, squares):
+        if direction == "ForwardLeft":
+            movement = BoardMovements.forward_left(self.position, self.color, squares)
+
+        elif direction == "ForwardRight":
+            movement = BoardMovements.forward_right(self.position, self.color, squares)
+
+        elif direction == "BackwardLeft":
+            movement = BoardMovements.backward_left(self.position, self.color, squares)
+
+        elif direction == "BackwardRight":
+            movement = BoardMovements.backward_right(self.position, self.color, squares)
+
+        else:
+            return
+
         super().move(movement)
 
 class Queen(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "Queen", "Q", identifier)
 
-    def move(self):
-        movement = "Queen moves diagonally or straight"
+    def move(self, direction, squares):
+        if direction == "Left":
+            movement = BoardMovements.left(self.position, self.color, squares)
+
+        elif direction == "Right":
+            movement = BoardMovements.right(self.position, self.color, squares)
+
+        elif direction == "Forward":
+            movement = BoardMovements.forward(self.position, self.color, squares)
+
+        elif direction == "Backward":
+            movement = BoardMovements.backward(self.position, self.color, squares)
+
+        elif direction == "ForwardLeft":
+            movement = BoardMovements.forward_left(self.position, self.color, squares)
+
+        elif direction == "ForwardRight":
+            movement = BoardMovements.forward_right(self.position, self.color, squares)
+
+        elif direction == "BackwardLeft":
+            movement = BoardMovements.backward_left(self.position, self.color, squares)
+
+        elif direction == "BackwardRight":
+            movement = BoardMovements.backward_right(self.position, self.color, squares)
+
+        else:
+            return
+
         super().move(movement)
 
 class King(BaseChessPiece):
     def __init__(self, color, identifier):
         super().__init__(color, "King", "K", identifier)
 
-    def move(self):
-        movement = "King moves 1 square in any direction"
+    def move(self, direction):
+        if direction == "Left":
+            movement = BoardMovements.left(self.position, self.color, 1)
+
+        elif direction == "Right":
+            movement = BoardMovements.right(self.position, self.color, 1)
+
+        elif direction == "Forward":
+            movement = BoardMovements.forward(self.position, self.color, 1)
+
+        elif direction == "Backward":
+            movement = BoardMovements.backward(self.position, self.color, 1)
+
+        elif direction == "ForwardLeft":
+            movement = BoardMovements.forward_left(self.position, self.color, 1)
+
+        elif direction == "ForwardRight":
+            movement = BoardMovements.forward_right(self.position, self.color, 1)
+
+        elif direction == "BackwardLeft":
+            movement = BoardMovements.backward_left(self.position, self.color, 1)
+
+        elif direction == "BackwardRight":
+            movement = BoardMovements.backward_right(self.position, self.color, 1)
+
+        else:
+            return
+
         super().move(movement)
 
 

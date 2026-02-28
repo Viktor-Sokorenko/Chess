@@ -2,6 +2,11 @@ from board import Board
 
 board = Board()
 
-rook = board.get_piece("a1")
+bishop = board.get_piece("c1")
+bishop.move("ForwardRight", 2)
 
-rook.move("Right", 2)
+queen = board.get_piece("d1")
+queen.move("Forward", 2)
+
+king = board.get_piece("e1")
+king.move("Forward")
