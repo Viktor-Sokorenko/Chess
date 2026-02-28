@@ -1,4 +1,5 @@
 from pieces import Rook, Knight, Bishop, Queen, King, Pawn
+import json
 
 
 class Board:
@@ -24,6 +25,19 @@ class Board:
                 square = f"{chr(col)}{row}"
                 line.append(self.squares[square])
             print(line)
+    
+    def save_board_state(self):
+        data = {}
+
+        for square, piece in self.squares.items():
+            if piece is None:
+                data[square] = None
+            else:
+                data[square] = str(piece)
+
+        with open("board.txt", "a") as file:
+            file.write(json.dumps(data))
+            file.write("\n") 
     
     def get_piece(self, square):
         """Returns the piece that is on a specific square"""
@@ -79,3 +93,4 @@ class Board:
             square = f"{chr(col)}7"
             self.squares[square] = Pawn("WHITE", identifier)
             identifier += 1
+
