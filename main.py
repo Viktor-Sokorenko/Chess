@@ -1,6 +1,9 @@
 from board import Board
 
 board = Board()
+board.print_board()
 
-knight = board.get_piece("b1")
-knight.move("ForwardRight")
+pawn = board.get_piece("a2")
+pawn.move()
+
+board.print_board()

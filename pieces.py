@@ -97,6 +97,21 @@ class BaseChessPiece(ABC):
     def move(self, movement):
         print(movement)
 
+        if self.board is None:
+            return
+
+        new_location = self.board.get_piece(movement)
+
+        if new_location is not None:
+            if new_location.color != self.color:
+                self.board.kill_piece(movement)
+            else:
+                return
+
+        self.board.squares[self.position] = None
+        self.position = movement
+        self.board.squares[self.position] = self
+
     def die(self):
         self.is_alive = False
     
