@@ -37,7 +37,13 @@ class Board:
 
         with open("board.txt", "a") as file:
             file.write(json.dumps(data))
-            file.write("\n") 
+            file.write("\n")
+
+    @staticmethod
+    def load_board_states(filename="board.txt"):
+        with open(filename, "r") as file:
+            for line in file:
+                yield line.strip()         
     
     def get_piece(self, square):
         """Returns the piece that is on a specific square"""

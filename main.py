@@ -7,3 +7,6 @@ pawn.move()
 
 pawn = board.get_piece("b2")
 pawn.move()
+
+for state in Board.load_board_states():
+    print(state)
