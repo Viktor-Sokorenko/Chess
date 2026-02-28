@@ -1,9 +1,12 @@
 from board import Board
 
 board = Board()
-board.print_board()
 
 pawn = board.get_piece("a2")
 pawn.move()
 
-board.print_board()
+pawn = board.get_piece("b2")
+pawn.move()
+
+for state in Board.load_board_states():
+    Board.print_state(state)
